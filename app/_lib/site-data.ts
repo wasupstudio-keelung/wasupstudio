@@ -6,10 +6,27 @@ export type BoardGame = {
   slug: string;
   title: string;
   tagline: string;
-  price?: number; // 沒有值＝客戶頁面上沒寫售價（預購中），總覽卡片顯示「預購中」
+  // 單一售價（數字）。⚠️ 不要在這裡寫貨幣符號或「元」，格式一律由
+  // boardGamePriceText() 產生，避免 7 個項目各寫各的（原站一路寫「售價960元」，
+  // 沒有 NT$、數字與「元」之間也沒有空格）。
+  price?: number;
+  // 售價沒辦法用單一數字表達時（例如核心盒與擴充是兩段價）用這格覆寫卡片文字，
+  // 優先於 price。⚠️ 這格是直接顯示的字串，要自己帶「元」。
+  priceLabel?: string;
+  // price 與 priceLabel 都沒有值＝客戶頁面上沒寫售價，總覽卡片顯示「預購中」。
   image: string | null; // 少數幾款原站就沒有專屬產品照，null 代表照實維持沒有圖
   href: string;
 };
+
+// 總覽卡片上的售價文字。原站「買桌遊」總覽頁寫的是「情緒謎語雙語版（售價960元）」，
+// 所以這裡不寫貨幣符號、數字與「元」之間也不空格。
+// ⚠️ 2026-09-07 之前這裡是寫死在 board-games/page.tsx 的 `NT$ ${price}`，那是原站沒有的
+// 貨幣符號（原站 83 頁一個 NT$ 都沒有），已改掉。要改格式改這裡一處就好。
+export function boardGamePriceText(game: BoardGame): string {
+  if (game.priceLabel) return game.priceLabel;
+  if (game.price === undefined) return "預購中";
+  return `${game.price}元`;
+}
 
 export const boardGames: BoardGame[] = [
   {

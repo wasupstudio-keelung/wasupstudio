@@ -3,7 +3,7 @@ import { SiteImage as Image } from "@/app/_components/SiteImage";
 import Link from "next/link";
 import { Container } from "@/app/_components/Container";
 import { PageBanner } from "@/app/_components/PageBanner";
-import { boardGames, soldOutBoardGames } from "@/app/_lib/site-data";
+import { boardGamePriceText, boardGames, soldOutBoardGames } from "@/app/_lib/site-data";
 
 export const metadata: Metadata = {
   title: "買桌遊",
@@ -122,7 +122,7 @@ export default function BoardGamesPage() {
                 <p className="text-xs text-ink/50">{game.tagline}</p>
                 <h2 className="mt-1 text-lg font-bold text-ink">{game.title}</h2>
                 <p className="mt-auto pt-4 text-brand-green font-semibold">
-                  {game.price === undefined ? "預購中" : `NT$ ${game.price}`}
+                  {boardGamePriceText(game)}
                 </p>
               </div>
             </Link>
