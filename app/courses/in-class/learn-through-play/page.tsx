@@ -7,7 +7,7 @@ import {
   TabPane,
   WeeblyOutlineButton,
 } from "@/app/_components/TabbedBox";
-import { boardGames } from "@/app/_lib/site-data";
+import { boardGames, soldOutBoardGames } from "@/app/_lib/site-data";
 
 export const metadata: Metadata = {
   title: "在遊戲中學議題｜入班授課",
@@ -27,7 +27,10 @@ const boardGameLink = (
   label = "桌遊介紹",
 ): CourseLink | undefined => {
   const game = boardGames.find((g) => g.slug === slug);
-  return game ? { label, href: game.href } : undefined;
+  if (game) return { label, href: game.href };
+  // 完售品仍然有商品頁。不查這一份的話，商品一從販售中搬走，這顆按鈕就會無聲消失。
+  const soldOut = soldOutBoardGames.find((g) => g.slug === slug && g.href);
+  return soldOut ? { label, href: soldOut.href! } : undefined;
 };
 
 // 《家分題》已完售，不在 site-data.ts 的 boardGames（販售中）清單裡，所以 boardGameLink() 查不到；

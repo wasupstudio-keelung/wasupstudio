@@ -34,6 +34,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     // 得在這裡明列，否則這兩個新路由不會出現在 sitemap。
     "/board-games/great-politician",
     "/board-games/family-topics",
+    // 2026-09-07 客戶指示改列「已完售」的兩款，商品頁保留，同樣要自己明列。
+    "/board-games/crazy-news",
+    "/board-games/pin-zhentou",
   ];
 
   const productPaths = boardGames.map((g) => g.href);

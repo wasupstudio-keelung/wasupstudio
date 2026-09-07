@@ -159,8 +159,9 @@ export default function CrazyNewsPage() {
                   圖示是深色透明 PNG 疊在 #323D3F 上，對比很低，2026-09-01 開原站實測確認
                   原站就長這樣，不是重建站畫錯，不要自己調亮。
                   ⚠️ 圖示上的數字（30~60min／3-6人／12+）跟本頁下方「遊戲資訊」的文字
-                  （30-50分鐘／3-7人／10＋）對不起來，這是原站自己的矛盾，
-                  已列入 MIGRATION-PLAN 待客戶確認，先照原站兩邊都保留。 */}
+                  （30-50分鐘／3-7人／10＋）對不起來，這是原站自己的矛盾。
+                  2026-09-07 客戶回覆問題清單時**沒有裁示哪一組才對**，改為指示這款移到「已完售」，
+                  所以兩邊維持原站原樣，不要再列為待辦（見 MIGRATION-PLAN 偏離清單第 18 條）。 */}
               <div className="mt-4 grid grid-cols-[42.2fr_57.8fr] items-center gap-4">
                 <SiteImage
                   src="/images/board-games/crazy-news-game-info-icons.png"
@@ -169,11 +170,7 @@ export default function CrazyNewsPage() {
                   height={55}
                   className="h-auto w-[181px] max-w-full"
                 />
-                <p className="text-[#d5d5d5]">
-                  售價：750元
-                  <br />
-                  *消費滿2000免運
-                </p>
+                <p className="text-[#d5d5d5]">本品已完售</p>
               </div>
             </div>
 
@@ -184,14 +181,9 @@ export default function CrazyNewsPage() {
                   說明圖原始檔 1076x349，原站縮到 278x90 顯示。 */}
               <div className="mt-8 grid items-center gap-6 sm:grid-cols-2">
                 <div className="flex flex-wrap gap-3">
-                  <a
-                    href="https://forms.gle/n4eqD2xcKHgPUwrS7"
-                    target="_blank"
-                    rel="noreferrer"
-                    className="rounded-full bg-brand-green px-6 py-3 font-semibold text-white transition hover:bg-brand-green-bright"
-                  >
-                    購買桌遊
-                  </a>
+<span className="rounded-full border border-white/25 bg-white/[0.06] px-6 py-3 font-semibold text-white/55">
+                    已完售
+                  </span>
                   <a
                     href="https://docs.google.com/forms/d/e/1FAIpQLScTpdFbaeh221rvaEMgG_1vrh0RC_9rOEx1j8ActjGE4PiM7A/viewform"
                     target="_blank"
@@ -213,12 +205,12 @@ export default function CrazyNewsPage() {
               {/* 見 MIGRATION-PLAN 偏離清單第 12 條。 */}
               <div className="mt-6 rounded-xl border border-white/25 bg-white/[0.04] px-5 py-4 text-sm leading-relaxed text-white/70">
                 <p>
-                  ＊「抓誑新聞媒體播報網頁」線上服務目前無法使用，原網址{" "}
+                  ＊「抓誑新聞媒體播報網頁」線上服務已停止，原網址{" "}
                   <span className="whitespace-nowrap">crazynews.wasupstudio.com</span>{" "}
-                  已停止運作。
+                  不再運作。
                 </p>
                 <p className="mt-2">
-                  第一刷買家的註冊碼、以及播報功能的相關問題，請來信{" "}
+                  播報音檔已改為提供購買者從雲端下載。需要下載連結，請來信{" "}
                   <a
                     href={`mailto:${studioContact.email}`}
                     className="underline underline-offset-2 hover:text-white"
@@ -272,14 +264,9 @@ export default function CrazyNewsPage() {
               >
                 兒少新聞妙捕手
               </a>
-              <a
-                href="https://forms.gle/n4eqD2xcKHgPUwrS7"
-                target="_blank"
-                rel="noreferrer"
-                className="rounded-full bg-brand-green px-6 py-3 font-semibold text-white transition hover:bg-brand-green-bright"
-              >
-                購買桌遊
-              </a>
+              <span className="rounded-full border border-white/25 bg-white/[0.06] px-6 py-3 font-semibold text-white/55">
+                已完售
+              </span>
               <a
                 href="https://docs.google.com/forms/d/e/1FAIpQLScTpdFbaeh221rvaEMgG_1vrh0RC_9rOEx1j8ActjGE4PiM7A/viewform"
                 target="_blank"

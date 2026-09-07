@@ -46,16 +46,6 @@ export const boardGames: BoardGame[] = [
     href: "/board-games/practice-for-love",
   },
   {
-    slug: "crazy-news",
-    title: "抓誑新聞",
-    tagline: "全球第一款媒體識讀桌遊",
-    price: 750,
-    // 原站「買桌遊」總覽頁這張卡用的是 001_3.jpeg（桌遊實物照）。重建時誤用了
-    // 二刷修訂說明圖，2026-09-02 開原站實查後改回來。
-    image: "/images/products/crazy-news.jpg",
-    href: "/board-games/crazy-news",
-  },
-  {
     slug: "future-parliament",
     title: "未來議會",
     tagline: "兒童人權 × 兒少生活議題 × 表達意見",
@@ -70,18 +60,6 @@ export const boardGames: BoardGame[] = [
     price: 860,
     image: "/images/products/play-a-lifetime.jpg",
     href: "/board-games/play-a-lifetime",
-  },
-  {
-    slug: "pin-zhentou",
-    title: "拚陣頭",
-    tagline: "認識台灣傳統藝陣文化的派對遊戲",
-    // ⚠️ 原站自己就前後矛盾：買桌遊總覽的相簿說明寫「拚陣頭（售價600元）」，
-    // 商品頁內文寫「售價：450元」。使用者 2026-08-26 指示「依照他原本的去做」，
-    // 所以兩邊各自忠實照抄原站——這裡（總覽用）是 600，商品頁維持 450。
-    // 這是客戶自己的資料不一致，不是重建錯誤；上線前建議請客戶確認現價。
-    price: 600,
-    image: "/images/products/pin-zhentou.png",
-    href: "/board-games/pin-zhentou",
   },
   {
     slug: "sharp-ten",
@@ -103,6 +81,9 @@ export const boardGames: BoardGame[] = [
 // 只是原站是從 3 個課程頁的內文連過去、這個「已完售」區塊沒有連。這裡照原站保持不連；
 // 如果之後決定要讓總覽頁也連得到，只要幫這筆補上 href: "/board-games/family-topics" 即可。
 export type SoldOutGame = {
+  // slug 只給「有站內商品頁」的款式。課程頁的 boardGameLink() 會先查 boardGames、
+  // 查不到再查這裡，這樣商品從販售中搬到完售時，課程頁的「桌遊介紹」按鈕不會靜默消失。
+  slug?: string;
   title: string;
   tagline: string;
   image: string;
@@ -111,6 +92,7 @@ export type SoldOutGame = {
 
 export const soldOutBoardGames: SoldOutGame[] = [
   {
+    slug: "great-politician",
     title: "大政治家：選戰風雲",
     tagline: "民主政治 × 台灣立委選舉",
     image: "/images/board-games/sold-out-da-zhengzhijia.jpg",
@@ -125,6 +107,24 @@ export const soldOutBoardGames: SoldOutGame[] = [
     title: "家分題",
     tagline: "性別平等 × 家務分工",
     image: "/images/board-games/sold-out-jia-fenti.jpg",
+  },
+  // 以下兩款是 2026-09-07 客戶回覆問題清單時指示搬過來的（原本在「販售中」）。
+  // 客戶原話：「近期剛完售，可以把買桌遊底下的抓誑新聞整個移除掉，另外是從販售中把它移到已完售」，
+  // 並附了一張把該卡片圈起來、箭頭指向「＊已完售」區塊的截圖。拚陣頭「比照辦理」。
+  // 沿用各自原本的商品照與商品頁連結（商品頁本身保留，只是不再標價、不再賣）。
+  {
+    slug: "crazy-news",
+    title: "抓誑新聞",
+    tagline: "全球第一款媒體識讀桌遊",
+    image: "/images/products/crazy-news.jpg",
+    href: "/board-games/crazy-news",
+  },
+  {
+    slug: "pin-zhentou",
+    title: "拚陣頭",
+    tagline: "認識台灣傳統藝陣文化的派對遊戲",
+    image: "/images/products/pin-zhentou.png",
+    href: "/board-games/pin-zhentou",
   },
 ];
 

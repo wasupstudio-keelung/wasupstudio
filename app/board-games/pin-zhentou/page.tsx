@@ -20,7 +20,9 @@ const info = [
   ["遊戲年紀", "7歲以上"],
   ["遊戲人數", "2-6人"],
   ["遊戲時間", "20-30分鐘"],
-  ["售價", "450元（消費滿2000免運）"],
+  // 2026-09-07 客戶指示這款移到「已完售」，售價那一列一併拿掉：
+  // 原站總覽寫 600、這頁寫 450，客戶回覆時沒有裁示哪個對，而已完售的商品標價會誤導。
+  // 見 MIGRATION-PLAN 偏離清單第 18 條。
 ];
 
 const galleryImages: GalleryImage[] = [
@@ -72,14 +74,9 @@ export default function PinZhentouPage() {
           </p>
 
           <div className="mt-8 flex flex-wrap gap-3">
-            <a
-              href="https://goo.gl/forms/PeWPnnnayz4P6r112"
-              target="_blank"
-              rel="noreferrer"
-              className="rounded-full bg-brand-green px-6 py-3 font-semibold text-white transition hover:bg-brand-green-bright"
-            >
-              購買桌遊
-            </a>
+            <span className="rounded-full border border-ink/25 bg-ink/[0.04] px-6 py-3 font-semibold text-ink/50">
+              已完售
+            </span>
             <a
               href="https://docs.google.com/forms/d/e/1FAIpQLScTpdFbaeh221rvaEMgG_1vrh0RC_9rOEx1j8ActjGE4PiM7A/viewform"
               target="_blank"

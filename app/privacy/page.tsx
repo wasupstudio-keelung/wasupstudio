@@ -5,17 +5,21 @@ import { studioContact } from "@/app/_lib/site-data";
 
 // 見 MIGRATION-PLAN 偏離清單第 14 條。
 //
-// ⚠️ 這頁的內容只寫「從程式碼與 DNS 查得到、確定為真」的事：實際嵌入的第三方服務、
-// 表單流向、伺服器日誌。**保存期限、內部管理措施、是否分享給其他第三方這幾類，
-// 需要客戶自己的營運事實才能寫，這裡刻意留白，不要憑印象補**（補了就是替客戶
-// 發明對外承諾）。客戶確認過實際作業之後再回來補，補的時候一併更新頁尾的修訂日期。
+// ⚠️ 這頁的內容只寫「從程式碼與 DNS 查得到、確定為真」的事，加上客戶自己講的營運事實。
+// **不要憑印象補任何對外承諾**，補了就是替客戶發明承諾；每次改內容都要一併更新 LAST_UPDATED。
+//
+// 第四節（保存多久、誰看得到）是 2026-09-07 依客戶書面回覆補的：
+// 保存期限客戶原話「我們目前是都留在表單裡，可以看政策需要我們怎麼配合」，
+// 所以措辭寫成「除非來信要求刪除，否則持續保存」——這是照他們實際作業寫的，
+// **刻意不寫「保存 N 年後自動刪除」**，那會變成一個沒有人會執行的承諾。
+// 存取範圍客戶原話「只有我們阿普蛙看的到」。
 export const metadata: Metadata = {
   title: "隱私權政策",
   description:
     "阿普蛙工作室官網的隱私權政策：我們會蒐集哪些資料、資料如何使用、經手資料的第三方服務，以及您可以如何行使個人資料的相關權利。",
 };
 
-const LAST_UPDATED = "2026 年 9 月 2 日";
+const LAST_UPDATED = "2026 年 9 月 7 日";
 
 // 這一頁列出的第三方，是實際會在瀏覽本站時被連到的服務。
 // 新增／移除任何嵌入內容或分析工具時，這張表要一起改。
@@ -117,7 +121,22 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                四、會經手資料的第三方服務
+                四、資料保存多久、誰看得到
+              </h2>
+              <p className="mt-3 leading-relaxed">
+                表單填寫的內容保存在本工作室 Google 帳號底下的表單回覆中，除非您來信要求刪除，
+                否則會持續保存，以便日後聯繫與查詢往來紀錄。
+                您隨時可以依第八節的方式來信要求刪除，我們會在確認身分後移除該筆資料。
+              </p>
+              <p className="mt-3 leading-relaxed">
+                這些回覆只有阿普蛙工作室內部人員看得到。本工作室不會將表單內容提供給合作講師、
+                合作單位或其他外部對象；第三方服務業者依其角色接觸到資料的情形，列在下一節。
+              </p>
+            </div>
+
+            <div>
+              <h2 className="font-heading text-xl font-bold text-ink">
+                五、會經手資料的第三方服務
               </h2>
               <p className="mt-3 leading-relaxed">
                 為了讓網站與表單運作，以下服務會接觸到相關資料：
@@ -143,7 +162,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                五、Cookie
+                六、Cookie
               </h2>
               <p className="mt-3 leading-relaxed">
                 本網站本身不會為了記住您而寫入 cookie。您在頁面上播放嵌入的 YouTube 影片時，YouTube 會寫入影片播放所需的資料。
@@ -156,7 +175,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                六、行銷訊息
+                七、行銷訊息
               </h2>
               <p className="mt-3 leading-relaxed">
                 只有在您填寫聯絡表單並勾選希望收到活動通知時，本工作室才會寄送活動與課程消息。
@@ -166,7 +185,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                七、您對自己資料的權利
+                八、您對自己資料的權利
               </h2>
               <p className="mt-3 leading-relaxed">
                 依照中華民國《個人資料保護法》第 3 條，您可以就本工作室持有的您的個人資料，行使下列權利：
@@ -193,7 +212,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                八、政策的修訂
+                九、政策的修訂
               </h2>
               <p className="mt-3 leading-relaxed">
                 本工作室調整網站功能或使用的服務時，會一併更新這份政策，並修改頁面上方的最後更新日期。
@@ -202,7 +221,7 @@ export default function PrivacyPage() {
 
             <div>
               <h2 className="font-heading text-xl font-bold text-ink">
-                九、聯絡我們
+                十、聯絡我們
               </h2>
               <div className="mt-3 space-y-1 leading-relaxed">
                 <p>{studioContact.name}</p>
