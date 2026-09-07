@@ -7,6 +7,16 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.wasupstudio.com"),
+
+  // Search Console 2026-09-07 回報「重複網頁；使用者未選取標準網頁」。
+  // 同一頁當時有 5 個都回 200 的網址（http／https × 有無 www，再加 workers.dev 備援網址），
+  // 而 70 頁裡一個 canonical 都沒有，所以 Google 沒有依據可以挑出要收錄哪一個。
+  // "./" 會相對 metadataBase 解析成「這一頁自己的網址」，子頁只要不覆寫 alternates 就繼承這行，
+  // 所以 30 個各自有 metadata 的頁不用逐一改。
+  alternates: {
+    canonical: "./",
+  },
+
   title: {
     default: "阿普蛙工作室｜遊戲,公民,教育 - 阿普蛙 Wa's UP",
     template: "%s - 阿普蛙工作室｜遊戲,公民,教育",
