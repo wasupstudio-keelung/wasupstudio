@@ -28,15 +28,18 @@ npm run lint    # ESLint，這個專案沒有自動化測試，驗收靠 build+l
 **正式站 2026-09-02 已上線：<https://www.wasupstudio.com>**，跑在**客戶名下** Cloudflare 帳號的 Workers 靜態資產上。
 
 ```bash
-CLOUDFLARE_ACCOUNT_ID=4d4c15bc9ad90313751279aa516bf6a6 npx wrangler deploy
+npx wrangler deploy
 ```
 
 - ⚠️ **push 到 GitHub 不會部署。** 部署是上面這一行手動跑的，設定在 `wrangler.jsonc`。
+- ⚠️ **`wrangler.jsonc` 的 `account_id` 不要拿掉**（2026-10-14 補的）。wrangler 在一個 token
+  看得到多個帳號時不會停下來問，它安靜挑第一個，於是部署會落在錯的帳號、而且回報成功。
+  實測與驗法寫在那個設定檔的註解裡。
 - 備援預覽網址：<https://wasupstudio.wasupstudio.workers.dev>（內容與正式站相同）。
   `wrangler.jsonc` 裡的 `workers_dev: true` 要留著，wrangler 一旦看到 `routes` 就會預設關掉它。
 - 舊網址的 301 對照在 `public/_redirects`（涵蓋原站 sitemap 全部 82 個 URL）。
   **那個檔是產生出來的**，來源是 source repo 的 `00-plan/301-redirects.tsv`，改完要跑 `00-plan/gen-redirects.py`。
 
-**帳號歸屬**：兩個 repo 與 Cloudflare 帳號都已在客戶名下（GitHub org `wasupstudio-keelung`，Cloudflare `Wasupstudio@gmail.com's Account`），接案方是 org Owner／Cloudflare Super Administrator。網域註冊商正在從 Register.com 轉到 Cloudflare Registrar，進度見 `../00-plan/HANDOVER-RUNBOOK.md`。
+**帳號歸屬**：兩個 repo 與 Cloudflare 帳號都已在客戶名下（GitHub org `wasupstudio-keelung`，Cloudflare `Wasupstudio@gmail.com's Account`），接案方是 org Owner／Cloudflare Super Administrator。網域註冊商 2026-09-08 已從 Register.com 轉到 Cloudflare Registrar（客戶帳號下，到期日 2029-02-15），經過見 `../00-plan/HANDOVER-RUNBOOK.md`。
 
 ~~GitHub Pages~~：2026-09-02 移除，workflow 與 `next.config.ts` 的 `GITHUB_PAGES`／`basePath` 分支都已刪掉。

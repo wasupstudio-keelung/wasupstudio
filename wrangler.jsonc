@@ -10,6 +10,18 @@
   // 接案方用 Super Administrator 成員身分操作。
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "wasupstudio",
+
+  // 客戶名下的 Cloudflare 帳號（接案方是 Super Administrator）。
+  //
+  // 為什麼要釘在這裡（2026-10-14 實測）：接案方的 token 同時看得到三個帳號，而 wrangler
+  // 在沒有 account_id、也沒有 CLOUDFLARE_ACCOUNT_ID 的時候**不會停下來問要哪一個**，
+  // 它安靜挑第一個（接案方的個人帳號）。不帶變數跑
+  // `npx wrangler deployments list --name wasupstudio` 回的是
+  // `10007 This Worker does not exist on your account`，也就是說一個沒帶變數的
+  // `wrangler deploy` 會在個人帳號新建一個同名 worker、而且回報成功，
+  // 客戶的正式站一動也沒動。驗法：把這一行註解掉再跑上面那個指令，要回到 10007。
+  "account_id": "4d4c15bc9ad90313751279aa516bf6a6",
+
   "compatibility_date": "2026-09-02",
 
   "assets": {
