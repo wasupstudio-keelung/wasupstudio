@@ -36,11 +36,15 @@ const info = [
   ["適合人數", "3-6 人（組）"],
   ["適合年齡", "10 歲以上"],
   ["遊戲時間", "30-45 分鐘（一堂課內能夠操作完畢）"],
+  ["售價", "1880元（消費滿2000免運）"],
 ];
 
-// 見 MIGRATION-PLAN 偏離清單第 17 條。
-const preorderForm =
-  "https://docs.google.com/forms/d/e/1FAIpQLSeR3HO1XGnmrMU7Db1rmrRtB-rhW8bYJJdPxK4J_pNEsCWF0Q/viewform";
+// 正式開賣後，預購表單換成與其他桌遊共用的購買表單。
+const purchaseForm =
+  "https://docs.google.com/forms/d/e/1FAIpQLSeNjwzit1cjicwRAKBiZfYBmvYPlf8z7C4FX6mtrHeE4nO0TQ/viewform";
+
+const courseForm =
+  "https://docs.google.com/forms/d/e/1FAIpQLScTpdFbaeh221rvaEMgG_1vrh0RC_9rOEx1j8ActjGE4PiM7A/viewform";
 
 const galleryImages: GalleryImage[] = [
   { src: "/images/products/words-collide/gallery-1.jpg", alt: "異言不合｜我就說兩句 桌遊主盒與兩款擴充包" },
@@ -80,12 +84,20 @@ export default function WordsCollidePage() {
 
           <div className="mt-8 flex flex-wrap gap-3">
             <a
-              href={preorderForm}
+              href={purchaseForm}
               target="_blank"
               rel="noreferrer"
               className="rounded-full bg-brand-green px-6 py-3 font-semibold text-white transition hover:bg-brand-green-bright"
             >
-              預購連結
+              購買連結
+            </a>
+            <a
+              href={courseForm}
+              target="_blank"
+              rel="noreferrer"
+              className="rounded-full border border-ink px-6 py-3 font-semibold text-ink"
+            >
+              課程邀約
             </a>
           </div>
         </div>
