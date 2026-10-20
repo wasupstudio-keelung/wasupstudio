@@ -32,11 +32,18 @@ const features = [
   "可搭配校園、家庭、愛情、友情等主題擴充使用",
 ];
 
-const info = [
+// 值可以是一段文字，或是多行文字（陣列裡每一項會各自佔一行，左邊對齊）。
+const info: [string, string | string[]][] = [
   ["適合人數", "3-6 人（組）"],
   ["適合年齡", "10 歲以上"],
   ["遊戲時間", "30-45 分鐘（一堂課內能夠操作完畢）"],
-  ["售價", "全套組 1880 元（消費滿 2000 免運）"],
+  [
+    "售價",
+    [
+      "核心盒 1180 元｜擴充盒 每盒 450 元",
+      "全套組（核心＋2 擴充）1880 元，現省 200 元",
+    ],
+  ],
 ];
 
 // 正式開賣後，預購表單換成與其他桌遊共用的購買表單。
@@ -110,7 +117,15 @@ export default function WordsCollidePage() {
             {info.map(([k, v]) => (
               <div key={k} className="contents">
                 <dt className="font-semibold text-ink">{k}</dt>
-                <dd>{v}</dd>
+                <dd>
+                  {Array.isArray(v)
+                    ? v.map((line) => (
+                        <span key={line} className="block">
+                          {line}
+                        </span>
+                      ))
+                    : v}
+                </dd>
               </div>
             ))}
           </dl>
