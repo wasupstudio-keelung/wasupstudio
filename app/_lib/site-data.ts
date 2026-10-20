@@ -35,7 +35,12 @@ export const boardGames: BoardGame[] = [
     slug: "words-collide",
     title: "異言不合｜我就說兩句",
     tagline: "人際溝通 × 社會情緒學習",
-    price: 1880,
+    // 這款是三段價（核心盒 1180、擴充每盒 450、全套 1880），沒辦法用單一數字表達，
+    // 所以用 priceLabel 覆寫卡片文字。⚠️ 不要改回 price：客戶 2026-10-20 原本填 price: 1880，
+    // 卡片就顯示「1880元」，而產品頁寫的是核心盒 1180 起，客人在總覽會以為單盒要 1880。
+    // 同一天跟客戶確認過，他選了顯示最低價（見 ../00-plan/client-messages/2026-10-20-*.md，
+    // 屬於上一層的 private repo）。產品頁上那三行售價是客戶自己寫的，不要動。
+    priceLabel: "1180元起",
     image: "/images/products/words-collide.jpg",
     href: "/board-games/words-collide",
   },
