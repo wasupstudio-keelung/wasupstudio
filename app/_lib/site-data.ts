@@ -35,7 +35,7 @@ export const boardGames: BoardGame[] = [
     slug: "words-collide",
     title: "異言不合｜我就說兩句",
     tagline: "人際溝通 × 社會情緒學習",
-    price: ?,
+    price: 1880,
     image: "/images/products/words-collide.jpg",
     href: "/board-games/words-collide",
   },
