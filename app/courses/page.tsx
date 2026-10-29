@@ -50,7 +50,7 @@ const courseCards: CourseCard[] = [
           },
           {
             label: "三、媒體素養",
-            items: ["桌遊《抓誑新聞》", "桌遊《犯罪現場》"],
+            items: ["桌遊《抓誑新聞》"],
           },
           {
             label: "四、全球議題",

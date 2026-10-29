@@ -32,7 +32,7 @@ const cardExtras: Record<string, CardExtra> = {
     items: [
       { label: "一、人際關係與溝通", games: ["我們班的叢林法則"] },
       { label: "二、性別平等", games: ["練愛猜心", "家分題"] },
-      { label: "三、媒體素養", games: ["抓誑新聞", "童話村命案", "犯罪現場"] },
+      { label: "三、媒體素養", games: ["抓誑新聞", "童話村命案"] },
       { label: "四、兒童權利公約", games: ["CRC偵探事件簿", "CRC糾察隊"] },
       {
         label: "五、全球議題",

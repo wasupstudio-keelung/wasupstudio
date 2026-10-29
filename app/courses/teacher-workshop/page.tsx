@@ -29,7 +29,6 @@ const materialTopics = [
     group: "三、媒體素養",
     items: [
       { name: "桌遊《抓誑新聞》", tags: "媒體識讀、資訊素養" },
-      { name: "桌遊《犯罪現場》", tags: "媒體識讀、資訊素養" },
     ],
   },
   {
